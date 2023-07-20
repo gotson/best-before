@@ -1,0 +1,3 @@
+rootProject.name = 'BestBefore'
+include(':core:java:bestbefore-processor-java')
+include(':core:kotlin:bestbefore-processor-kotlin')

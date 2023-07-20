@@ -1,0 +1,14 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'com.google.devtools.ksp'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.devtools.ksp:symbol-processing-api:1.9.0-1.0.11'
+    implementation 'com.google.auto.service:auto-service-annotations:1.1.1'
+    ksp 'dev.zacsweers.autoservice:auto-service-ksp:1.1.0'
+}
