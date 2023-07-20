@@ -16,7 +16,6 @@ allprojects {
     group = 'com.github.gotson.bestbefore'
 
     apply plugin: 'java'
-    apply from: "${rootDir}/gradle/publish.gradle"
 
     java {
         toolchain {

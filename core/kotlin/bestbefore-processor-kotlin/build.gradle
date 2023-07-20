@@ -3,9 +3,7 @@ plugins {
     id 'com.google.devtools.ksp'
 }
 
-repositories {
-    mavenCentral()
-}
+apply from: "${rootDir}/gradle/publish.gradle"
 
 dependencies {
     implementation 'com.google.devtools.ksp:symbol-processing-api:1.9.0-1.0.11'

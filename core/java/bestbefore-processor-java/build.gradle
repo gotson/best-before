@@ -1,6 +1,4 @@
-repositories {
-    mavenCentral()
-}
+apply from: "${rootDir}/gradle/publish.gradle"
 
 dependencies {
     implementation('com.google.auto.service:auto-service:1.1.1')
