@@ -18,6 +18,12 @@ allprojects {
     apply plugin: 'java'
     apply from: "${rootDir}/gradle/publish.gradle"
 
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(8)
+        }
+    }
+
     repositories {
         mavenCentral()
     }
@@ -27,8 +33,17 @@ allprojects {
         testImplementation 'org.assertj:assertj-core:3.24.2'
     }
 
+    tasks.compileTestJava {
+        javaCompiler = javaToolchains.compilerFor {
+            languageVersion = JavaLanguageVersion.of(11)
+        }
+    }
+
     test {
         useJUnitPlatform()
+        javaLauncher = javaToolchains.launcherFor {
+            languageVersion = JavaLanguageVersion.of(11)
+        }
     }
 }
 
