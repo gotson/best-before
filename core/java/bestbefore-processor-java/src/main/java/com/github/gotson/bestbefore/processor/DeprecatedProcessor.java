@@ -16,7 +16,7 @@ import java.util.Set;
 @SupportedAnnotationTypes(
     "java.lang.Deprecated"
 )
-@SupportedSourceVersion(SourceVersion.RELEASE_11)
+@SupportedSourceVersion(SourceVersion.RELEASE_5)
 @AutoService(Processor.class)
 public class DeprecatedProcessor extends AbstractProcessor {
     @Override
