@@ -6,7 +6,7 @@ plugins {
 apply from: "${rootDir}/gradle/publish.gradle"
 
 dependencies {
-    implementation 'com.google.devtools.ksp:symbol-processing-api:1.9.10-1.0.13'
+    implementation 'com.google.devtools.ksp:symbol-processing-api:2.0.0-1.0.21'
     implementation 'com.google.auto.service:auto-service-annotations:1.1.1'
     ksp 'dev.zacsweers.autoservice:auto-service-ksp:1.1.0'
 }
