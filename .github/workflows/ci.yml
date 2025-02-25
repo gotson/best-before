@@ -95,15 +95,15 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '11'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
       - name: Nexus publish
-        uses: gradle/actions/setup-gradle@v3
         env:
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_KEY }}
           ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.GPG_PASSPHRASE }}
           ORG_GRADLE_PROJECT_sonatypeUsername: ${{ secrets.MAVENCENTRAL_USER }}
           ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.MAVENCENTRAL_PASSWORD }}
-        with:
-          arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
+        run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
       - name: Release commit and push
         uses: EndBug/add-and-commit@v9
         if: inputs.perform_release
@@ -111,9 +111,7 @@ jobs:
           message: 'chore(release): ${{ needs.version.outputs.version_next }} [skip ci]'
           default_author: github_actions
       - name: JReleaser full release
-        uses: gradle/actions/setup-gradle@v3
         if: inputs.perform_release
         env:
           JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          arguments: jreleaserFullRelease
+        run: ./gradlew jreleaserFullRelease
