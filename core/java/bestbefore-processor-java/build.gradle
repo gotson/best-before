@@ -3,5 +3,5 @@ apply from: "${rootDir}/gradle/publish.gradle"
 dependencies {
     implementation('com.google.auto.service:auto-service:1.1.1')
     annotationProcessor('com.google.auto.service:auto-service:1.1.1')
-    testImplementation('com.karuslabs:elementary:2.0.0')
+    testImplementation('com.karuslabs:elementary:3.0.0')
 }
