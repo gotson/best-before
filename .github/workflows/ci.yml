@@ -87,6 +87,8 @@ jobs:
     if: needs.version.outputs.should_release
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Display versions
         run: |
           echo "Current version: ${{ needs.version.outputs.version_current }}, should release: ${{ needs.version.outputs.version_next }}"
