@@ -12,10 +12,19 @@ nexusPublishing {
     }
 }
 
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def unstableKeyword = ['ALPHA', 'RC'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    def isStable = stableKeyword || (version ==~ regex)
+    return unstableKeyword || !isStable
+}
+
 allprojects {
     group = 'com.github.gotson.bestbefore'
 
     apply plugin: 'java'
+    apply plugin: 'com.github.ben-manes.versions'
 
     java {
         toolchain {
@@ -43,6 +52,14 @@ allprojects {
         javaLauncher = javaToolchains.launcherFor {
             languageVersion = JavaLanguageVersion.of(11)
         }
+    }
+
+    tasks.named("dependencyUpdates").configure {
+        rejectVersionIf {
+            isNonStable(it.candidate.version) && ~isNonStable(currentVersion)
+        }
+        gradleReleaseChannel = "current"
+        checkConstraints = true
     }
 }
 
