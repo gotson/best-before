@@ -1,6 +1,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/gotson/best-before/ci.yml?branch=main&style=flat-square)](https://github.com/gotson/best-before/actions/workflows/ci.yml)
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.gotson.bestbefore/bestbefore-processor-kotlin?color=blue&style=flat-square)](https://search.maven.org/search?q=g:com.github.gotson.bestbefore)
-[![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/com.github.gotson.bestbefore/bestbefore-processor-kotlin?color=blue&label=maven-snapshot&server=https%3A%2F%2Foss.sonatype.org&style=flat-square)](https://oss.sonatype.org/content/repositories/snapshots/com/github/gotson/bestbefore/)
+![Maven Snapshots](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fcom%2Fgithub%2Fgotson%2Fbestbefore%2Fbestbefore-processor-kotlin%2Fmaven-metadata.xml&style=flat-square&label=maven%20snapshot&color=blue
+)
 
 # Best Before
 
